@@ -1,0 +1,3 @@
+#! /bin/sh
+uwsgi --ini /usr/shrine/pub/shrine-api/shrine.ini
+

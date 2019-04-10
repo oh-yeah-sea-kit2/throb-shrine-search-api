@@ -1,0 +1,71 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Shrine API
+host: 118.27.8.59
+basePath: /
+schemes:
+  - http
+paths:
+  /shrine/master:
+    get:
+      description: 全国の神社情報を返す。緯度経度を１点指定して周囲の神社を返します。
+      parameters:
+        - name: lat
+          in: query
+          type: integer
+          required: true
+          description: 緯度（20.42527777 ~ 45.55722222）
+        - name: lon
+          in: query
+          type: integer
+          required: true
+          description: 経度（122.93361111 ~ 153.98638888）
+        - name: rad
+          in: query
+          type: integer
+          required: false
+          description: 半径(m) 0 ~ 50000
+      responses:
+        200:
+          description: Success
+          schema:
+            $ref: '#/definitions/MasterResponse'
+  /shrine/version:
+    get:
+      description: APIのバージョン情報
+      responses:
+        200:
+          description: Success
+          schema:
+            type: object
+
+
+definitions:
+  MasterResponse:
+    type: object
+    properties:
+      header:
+        type: string
+      response:
+        type: array
+        items:
+          type: object
+          properties:
+            name:
+              type: string
+            address:
+              type: string
+            geometry:
+              type: object
+              properties:
+                lat:
+                  type: string
+                lon:
+                  type: string
+            googlemap_url:
+              type: string
+            url:
+              type: string
+            
+  

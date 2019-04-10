@@ -1,0 +1,3 @@
+#! /bin/sh
+touch /usr/shrine/tmp/shrine-api-uwsgi.reload_trigger
+

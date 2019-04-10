@@ -1,0 +1,3 @@
+#! /bin/sh
+uwsgi --stop /usr/shrine/tmp/shrine-api-uwsgi.pid
+
